@@ -361,7 +361,7 @@ h1, h2, h3, h4 {
   transition: transform var(--t), box-shadow var(--t);
 }
 .member:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.member__photo { aspect-ratio: 1 / 1; background: var(--color-bg-soft); width: 100%; object-fit: cover; }
+.member__photo { aspect-ratio: 1 / 1; background: var(--color-bg-soft); width: 100%; object-fit: cover; object-position: top center; }
 .member__body { padding: var(--s-2) var(--s-2) var(--s-3); }
 .member__name { font-family: var(--font-head); font-size: 1.1rem; }
 .member__role { color: var(--color-accent-d); font-weight: 600; font-size: .85rem; margin-top: 2px; }
