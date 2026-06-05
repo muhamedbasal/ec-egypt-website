@@ -1,0 +1,14 @@
+{
+  "name": "Egyptian Canadian Company",
+  "short_name": "EC-Egypt",
+  "description": "Pulses import and export in Egypt — lentils, chickpeas, faba beans and more.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1B5E3F",
+  "icons": [
+    { "src": "images/logo.png", "sizes": "any", "type": "image/png" },
+    { "src": "favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
+  ]
+}
