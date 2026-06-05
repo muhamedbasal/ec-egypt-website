@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,66 +11,76 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Egyptian Canadian Company">
   <meta property="og:title" content="About Us | Egyptian Canadian Company">
-  <meta property="og:description" content="Meet the team behind Egyptian Canadian Company — decades of international pulse-trade experience.">
+  <meta property="og:description" content="Decades of international pulse-trade experience serving food manufacturers across Egypt and the region.">
   <meta property="og:url" content="https://ec-egypt.com/about.html">
   <meta property="og:image" content="https://ec-egypt.com/images/hero_1.jpg">
   <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ar_EG">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About Us | Egyptian Canadian Company">
   <meta name="twitter:description" content="Meet the team behind Egyptian Canadian Company.">
   <meta name="twitter:image" content="https://ec-egypt.com/images/hero_1.jpg">
 
-  <meta name="theme-color" content="#1B5E3F">
+  <meta name="theme-color" content="#0E3B26">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="manifest" href="site.webmanifest">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-title-en="About Us | Egyptian Canadian Company" data-title-ar="من نحن | الشركة المصرية الكندية">
+  <a class="skip-link" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
 
   <div class="topbar">
     <div class="container">
-      <span class="topbar__q">Have a question?</span>
-      <a href="tel:+201009577227" aria-label="Call us">
+      <span class="topbar__q">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2zm0-4h-2c0-3 3-2.7 3-5a1.5 1.5 0 0 0-3 0H9a3.5 3.5 0 0 1 7 0c0 2.8-3 3-3 5z"/></svg>
+        <span data-en="Have a question?" data-ar="عندك استفسار؟">Have a question?</span>
+      </span>
+      <a href="tel:+201009577227" aria-label="Call us" data-aria-en="Call us" data-aria-ar="اتصل بنا">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.9 15.9 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.25 1z"/></svg>
         01009577227
       </a>
-      <a href="https://api.whatsapp.com/send?phone=201061130918" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <span class="topbar__sep" aria-hidden="true"></span>
+      <a href="https://api.whatsapp.com/send?phone=201061130918" target="_blank" rel="noopener" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.8 2.8 0 0 0 6 8c0 1.7 1.2 3.3 1.4 3.5s2.4 3.7 5.8 5c2.1.8 2.1.5 2.5.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
-        WhatsApp
+        <span data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
       </a>
+      <span class="topbar__sep" aria-hidden="true"></span>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="is-active">EN</button>
+        <button type="button" data-lang="ar">ع</button>
+      </div>
     </div>
   </div>
 
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Egyptian Canadian Company — home">
-        <img src="images/logo.png" alt="Egyptian Canadian Company logo" width="120" height="44">
+        <img src="images/logo.png" alt="Egyptian Canadian Company logo" width="120" height="46">
         <span class="brand__text">
-          <strong>Egyptian Canadian Co.</strong>
-          <small>Pulses Import &amp; Export</small>
+          <strong data-en="Egyptian Canadian Co." data-ar="المصرية الكندية">Egyptian Canadian Co.</strong>
+          <small data-en="Pulses Import &amp; Export" data-ar="استيراد وتصدير البقوليات">Pulses Import &amp; Export</small>
         </span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav"><span></span></button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav" data-aria-en="Toggle menu" data-aria-ar="فتح القائمة"><span></span></button>
       <nav class="main-nav" id="primary-nav" aria-label="Primary">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+          <li><a href="about.html" aria-current="page" data-en="About" data-ar="من نحن">About</a></li>
           <li class="has-dropdown">
-            <a href="products.html">Products</a>
+            <a href="products.html" data-en="Products" data-ar="المنتجات">Products</a>
             <ul class="dropdown">
-              <li><a href="products.html">Red lentils</a></li>
-              <li><a href="products.html">Lupine</a></li>
-              <li><a href="products.html">Faba bean</a></li>
-              <li><a href="products.html">Popcorn</a></li>
-              <li><a href="products.html">Black-eyed beans</a></li>
+              <li><a href="products.html" data-en="Red lentils" data-ar="عدس أحمر">Red lentils</a></li>
+              <li><a href="products.html" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
+              <li><a href="products.html" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
+              <li><a href="products.html" data-en="Popcorn" data-ar="فشار">Popcorn</a></li>
+              <li><a href="products.html" data-en="Black-eyed beans" data-ar="لوبيا">Black-eyed beans</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+          <li><a class="btn btn--dark btn--sm nav-cta" href="contact.html" data-en="Get a Quote" data-ar="اطلب عرض سعر">Get a Quote</a></li>
         </ul>
       </nav>
     </div>
@@ -80,29 +90,34 @@
   <main id="main">
 
     <section class="page-hero">
+      <div class="page-hero__bg"><img src="images/hero_1.jpg" alt="" width="1600" height="600"></div>
       <div class="container">
-        <h1>About Us</h1>
+        <h1 data-en="About Us" data-ar="من نحن">About Us</h1>
+        <p class="lead" data-en="Decades of international pulse-trade experience, serving food manufacturers across Egypt and the region." data-ar="عقود من الخبرة في تجارة البقوليات الدولية، نخدم مصانع الأغذية في مصر والمنطقة.">Decades of international pulse-trade experience, serving food manufacturers across Egypt and the region.</p>
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a> / <span>About</span>
+          <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a> <span aria-hidden="true">/</span> <span data-en="About" data-ar="من نحن">About</span>
         </nav>
       </div>
     </section>
 
-    <!-- Intro -->
-    <section class="section about-teaser">
-      <div class="container">
-        <div class="reveal">
-          <span class="eyebrow">Who We Are</span>
-          <h2>Egyptian Canadian Company (EC)</h2>
-          <p>EC: is an Egyptian importing company bringing world pulses to wholesalers and food manufacture in Egypt and surrounding countries.</p>
-          <div class="pills">
-            <span class="pill">Import</span>
-            <span class="pill">Export</span>
-            <span class="pill">Trading in food manufacture</span>
-          </div>
-          <a class="btn btn--secondary" href="products.html">View our products</a>
+    <!-- Intro split -->
+    <section class="section">
+      <div class="container split">
+        <div class="split__media reveal">
+          <img src="images/products/3.jpg" alt="Basal-brand packaged Egyptian pulses" loading="lazy" width="640" height="480" data-fallback data-label="Egyptian Canadian Company">
+          <div class="badge">82<span data-en="Years of trust" data-ar="سنة من الثقة">Years of trust</span></div>
         </div>
-        <img class="about-teaser__media reveal" src="images/products/3.jpg" alt="Basal-brand packaged Egyptian pulses on burlap" loading="lazy" width="640" height="430" data-fallback data-label="Egyptian Canadian Company" data-ph-class="about-teaser__media">
+        <div class="split__body reveal d1">
+          <span class="eyebrow" data-en="Who We Are" data-ar="من نحن">Who We Are</span>
+          <h2 data-en="Egyptian Canadian Company (EC)" data-ar="الشركة المصرية الكندية">Egyptian Canadian Company (EC)</h2>
+          <p data-en="EC is an Egyptian importing company bringing world pulses to wholesalers and food manufacture in Egypt and surrounding countries." data-ar="شركة مصرية متخصصة في استيراد بقوليات العالم وتوريدها لتجار الجملة ومصانع الأغذية في مصر والدول المجاورة.">EC is an Egyptian importing company bringing world pulses to wholesalers and food manufacture in Egypt and surrounding countries.</p>
+          <div class="pills">
+            <span class="pill" data-en="Import" data-ar="استيراد">Import</span>
+            <span class="pill" data-en="Export" data-ar="تصدير">Export</span>
+            <span class="pill" data-en="Food manufacture trading" data-ar="تجارة وتصنيع غذائي">Food manufacture trading</span>
+          </div>
+          <a class="btn btn--outline" href="products.html" data-en="View our products" data-ar="شاهد منتجاتنا">View our products</a>
+        </div>
       </div>
     </section>
 
@@ -110,94 +125,101 @@
     <section class="section stats">
       <div class="container">
         <div class="grid">
-          <div class="reveal"><div class="stat__num" data-count="10700">0</div><div class="stat__label">Number of Clients</div></div>
-          <div class="reveal"><div class="stat__num" data-count="82">0</div><div class="stat__label">Years of Experience</div></div>
-          <div class="reveal"><div class="stat__num" data-count="80">0</div><div class="stat__label">Employees</div></div>
-          <div class="reveal"><div class="stat__num" data-count="5300">0</div><div class="stat__label">Cups of Coffee</div></div>
+          <div class="reveal"><div class="stat__num" data-count="10700">0</div><div class="stat__label" data-en="Number of Clients" data-ar="عدد العملاء">Number of Clients</div></div>
+          <div class="reveal d1"><div class="stat__num" data-count="82">0</div><div class="stat__label" data-en="Years of Experience" data-ar="سنوات الخبرة">Years of Experience</div></div>
+          <div class="reveal d2"><div class="stat__num" data-count="80">0</div><div class="stat__label" data-en="Employees" data-ar="الموظفون">Employees</div></div>
+          <div class="reveal d3"><div class="stat__num" data-count="5300">0</div><div class="stat__label" data-en="Cups of Coffee" data-ar="أكواب القهوة">Cups of Coffee</div></div>
         </div>
       </div>
     </section>
 
     <!-- Team -->
-    <section class="section section--soft">
+    <section class="section section--cream">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Our Team</span>
-          <h2>The People Behind EC</h2>
-          <p>Our team collectively has international trade experience and accord careful personal attention for every shipment. We have exceptional procedures in place to facilitate efficient movement of farm product to the end user. Our team can directly take care of your specific requirements and all necessary documentation to meet our customer needs.</p>
+        <div class="section-head center reveal">
+          <span class="eyebrow" data-en="Our Team" data-ar="فريقنا">Our Team</span>
+          <h2 data-en="The People Behind EC" data-ar="فريق العمل">The People Behind EC</h2>
+          <p data-en="Our team collectively has international trade experience and gives careful personal attention to every shipment. We have exceptional procedures in place to facilitate efficient movement of farm product to the end user, and we handle all necessary documentation to meet our customers' needs." data-ar="يمتلك فريقنا خبرة جماعية في التجارة الدولية، ويولي اهتماماً شخصياً دقيقاً لكل شحنة. لدينا إجراءات استثنائية لتسهيل انتقال المنتج الزراعي بكفاءة إلى المستخدم النهائي، ونتولّى جميع المستندات اللازمة لتلبية احتياجات عملائنا.">Our team collectively has international trade experience and gives careful personal attention to every shipment. We have exceptional procedures in place to facilitate efficient movement of farm product to the end user, and we handle all necessary documentation to meet our customers' needs.</p>
         </div>
         <div class="team-grid">
           <article class="member reveal">
-            <img class="member__photo" src="images/pics/GamalBasal.jpg" alt="Gamal Basal — Owner" loading="lazy" width="300" height="300" data-fallback data-label="Gamal Basal">
-            <div class="member__body"><div class="member__name">Gamal Basal</div><div class="member__role">Owner</div></div>
+            <img class="member__photo" src="images/pics/GamalBasal.jpg" alt="Gamal Basal — Owner" loading="lazy" width="300" height="400" data-fallback data-label="Gamal Basal">
+            <div class="member__body"><div class="member__name">Gamal Basal</div><div class="member__role" data-en="Owner" data-ar="مالك الشركة">Owner</div></div>
+          </article>
+          <article class="member reveal d1">
+            <img class="member__photo" src="images/pics/MohsenBasal.jpg" alt="Mohsen Basal — Owner" loading="lazy" width="300" height="400" data-fallback data-label="Mohsen Basal">
+            <div class="member__body"><div class="member__name">Mohsen Basal</div><div class="member__role" data-en="Owner" data-ar="مالك الشركة">Owner</div></div>
+          </article>
+          <article class="member reveal d2">
+            <img class="member__photo" src="images/pics/MohamedMohsen.jpg" alt="Mohamed Mohsen — Board of Directors" loading="lazy" width="300" height="400" data-fallback data-label="Mohamed Mohsen">
+            <div class="member__body"><div class="member__name">Mohamed Mohsen</div><div class="member__role" data-en="Board of Directors" data-ar="مجلس الإدارة">Board of Directors</div></div>
           </article>
           <article class="member reveal">
-            <img class="member__photo" src="images/pics/MohsenBasal.jpg" alt="Mohsen Basal — Owner" loading="lazy" width="300" height="300" data-fallback data-label="Mohsen Basal">
-            <div class="member__body"><div class="member__name">Mohsen Basal</div><div class="member__role">Owner</div></div>
+            <img class="member__photo" src="images/pics/AbelrahmanGamal.jpg" alt="Abelrahman Gamal — Board of Directors" loading="lazy" width="300" height="400" data-fallback data-label="Abelrahman Gamal">
+            <div class="member__body"><div class="member__name">Abelrahman Gamal</div><div class="member__role" data-en="Board of Directors" data-ar="مجلس الإدارة">Board of Directors</div></div>
           </article>
-          <article class="member reveal">
-            <img class="member__photo" src="images/pics/MohamedMohsen.jpg" alt="Mohamed Mohsen — Board of Directors" loading="lazy" width="300" height="300" data-fallback data-label="Mohamed Mohsen">
-            <div class="member__body"><div class="member__name">Mohamed Mohsen</div><div class="member__role">Board of Directors</div></div>
+          <article class="member reveal d1">
+            <img class="member__photo" src="images/pics/MohamedEssily.jpg" alt="Mohamed Essily — Manager" loading="lazy" width="300" height="400" data-fallback data-label="Mohamed Essily">
+            <div class="member__body"><div class="member__name">Mohamed Essily</div><div class="member__role" data-en="Manager" data-ar="مدير">Manager</div></div>
           </article>
-          <article class="member reveal">
-            <img class="member__photo" src="images/pics/AbelrahmanGamal.jpg" alt="Abelrahman Gamal — Board of Directors" loading="lazy" width="300" height="300" data-fallback data-label="Abelrahman Gamal">
-            <div class="member__body"><div class="member__name">Abelrahman Gamal</div><div class="member__role">Board of Directors</div></div>
-          </article>
-          <article class="member reveal">
-            <img class="member__photo" src="images/pics/MohamedEssily.jpg" alt="Mohamed Essily — Manager" loading="lazy" width="300" height="300" data-fallback data-label="Mohamed Essily">
-            <div class="member__body"><div class="member__name">Mohamed Essily</div><div class="member__role">Manager</div></div>
-          </article>
-          <article class="member reveal">
-            <img class="member__photo" src="images/pics/HeshamAgeez.jpg" alt="Hesham Ageez — Sales" loading="lazy" width="300" height="300" data-fallback data-label="Hesham Ageez">
-            <div class="member__body"><div class="member__name">Hesham Ageez</div><div class="member__role">Sales</div></div>
+          <article class="member reveal d2">
+            <img class="member__photo" src="images/pics/HeshamAgeez.jpg" alt="Hesham Ageez — Sales" loading="lazy" width="300" height="400" data-fallback data-label="Hesham Ageez">
+            <div class="member__body"><div class="member__name">Hesham Ageez</div><div class="member__role" data-en="Sales" data-ar="المبيعات">Sales</div></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CTA banner -->
-    <section class="section cta-banner">
-      <div class="container reveal">
-        <h2>We Are Here For You!</h2>
-        <p>Contact or visit us and we'll be happy to work together.</p>
-        <a class="btn btn--primary" href="contact.html">Contact Us</a>
+    <!-- CTA -->
+    <section class="section cta">
+      <div class="container">
+        <h2 data-en="We Are Here For You!" data-ar="نحن هنا من أجلك!">We Are Here For You!</h2>
+        <p data-en="Contact or visit us and we'll be happy to work together." data-ar="تواصل معنا أو قم بزيارتنا، ويسعدنا التعاون معك.">Contact or visit us and we'll be happy to work together.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+          <a class="btn btn--wa" href="https://api.whatsapp.com/send?phone=201061130918" target="_blank" rel="noopener" data-en="WhatsApp" data-ar="واتساب">WhatsApp</a>
+        </div>
       </div>
     </section>
 
     <!-- Testimonials -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Testimonials</span>
-          <h2>Happy Clients</h2>
+        <div class="section-head center reveal">
+          <span class="eyebrow" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</span>
+          <h2 data-en="Happy Clients" data-ar="عملاء سعداء">Happy Clients</h2>
         </div>
         <div class="testi reveal" data-slider>
           <div class="testi__track">
             <figure class="testi__slide is-active">
-              <blockquote class="testi__quote">ECC are pleasant to deal with and have great customer focus. They have a varied product offering with an innovative portfolio and are pro active, speedy and innovative in offering bespoke products, very reactive and expert support given to facilitate specific requirements. Excellent NPD product turn around and delivery to fulfil last minute trial requests or deadlines.</blockquote>
-              <img class="testi__avatar" src="images/person_1.jpg" alt="" loading="lazy" width="72" height="72" data-fallback data-label="RD" data-ph-class="testi__avatar media-ph">
-              <figcaption><div class="testi__name">R&amp;D Manager</div><div class="testi__role">International Food Manufacturer</div></figcaption>
+              <div class="testi__mark" aria-hidden="true">&#8220;</div>
+              <blockquote class="testi__quote" data-en="ECC are pleasant to deal with and have great customer focus. They have a varied product offering with an innovative portfolio and are pro active, speedy and innovative in offering bespoke products, very reactive and expert support given to facilitate specific requirements." data-ar="‏ECC شركة ممتعة في التعامل وتركّز بشدة على العميل. لديهم تشكيلة منتجات متنوعة ومبتكرة، وسريعون واستباقيون في تقديم منتجات مُفصّلة حسب الطلب، مع دعم خبير لتلبية المتطلبات الخاصة.">ECC are pleasant to deal with and have great customer focus. They have a varied product offering with an innovative portfolio and are pro active, speedy and innovative in offering bespoke products, very reactive and expert support given to facilitate specific requirements.</blockquote>
+              <img class="testi__avatar" src="images/person_1.jpg" alt="" loading="lazy" width="74" height="74" data-fallback data-label="RD" data-ph-class="testi__avatar">
+              <figcaption><div class="testi__name" data-en="R&amp;D Manager" data-ar="مدير البحث والتطوير">R&amp;D Manager</div><div class="testi__role" data-en="International Food Manufacturer" data-ar="مصنّع أغذية عالمي">International Food Manufacturer</div></figcaption>
             </figure>
             <figure class="testi__slide">
-              <blockquote class="testi__quote">We have experienced very high knowhow from ECC in suggesting and providing our customers with the right solution adapted to any specific request. We get very quick and professional replies to requests and ECC provide us with very good sample kits which allow us to present ECC products in a professional manner. ECC key contacts have a very professional, friendly and positive attitude, this makes our working day a little more easier and better.</blockquote>
-              <img class="testi__avatar" src="images/person_2.jpg" alt="" loading="lazy" width="72" height="72" data-fallback data-label="KH" data-ph-class="testi__avatar media-ph">
-              <figcaption><div class="testi__name">Kristian Hansen</div><div class="testi__role">Area Sales Manager, Alsiano A/S</div></figcaption>
+              <div class="testi__mark" aria-hidden="true">&#8220;</div>
+              <blockquote class="testi__quote" data-en="We have experienced very high knowhow from ECC in suggesting and providing our customers with the right solution. We get very quick and professional replies, and ECC key contacts have a very professional, friendly and positive attitude that makes our working day better." data-ar="لمسنا خبرة عالية جداً من ECC في اقتراح وتقديم الحل المناسب لعملائنا. نحصل على ردود سريعة واحترافية، وفريق ECC يتمتّع بأسلوب احترافي وودود وإيجابي يجعل يوم عملنا أفضل.">We have experienced very high knowhow from ECC in suggesting and providing our customers with the right solution. We get very quick and professional replies, and ECC key contacts have a very professional, friendly and positive attitude that makes our working day better.</blockquote>
+              <img class="testi__avatar" src="images/person_2.jpg" alt="" loading="lazy" width="74" height="74" data-fallback data-label="KH" data-ph-class="testi__avatar">
+              <figcaption><div class="testi__name">Kristian Hansen</div><div class="testi__role" data-en="Area Sales Manager, Alsiano A/S" data-ar="مدير مبيعات المنطقة، Alsiano A/S">Area Sales Manager, Alsiano A/S</div></figcaption>
             </figure>
             <figure class="testi__slide">
-              <blockquote class="testi__quote">ECC are a very flexible supplier who will do its best to keep their customers happy they present many good new product ideas, innovative flavours and colours. ECC is very responsive to its customers wishes and will do everything in their power to match what the customer needs for its project, they are always on time and willing to co-operate – You are my favourite supplier!</blockquote>
-              <img class="testi__avatar" src="images/person_4.jpg" alt="" loading="lazy" width="72" height="72" data-fallback data-label="PM" data-ph-class="testi__avatar media-ph">
-              <figcaption><div class="testi__name">Purchasing Manager</div><div class="testi__role">Sweden</div></figcaption>
+              <div class="testi__mark" aria-hidden="true">&#8220;</div>
+              <blockquote class="testi__quote" data-en="ECC are a very flexible supplier who will do its best to keep their customers happy. They present many good new product ideas, innovative flavours and colours, and will do everything in their power to match what the customer needs — You are my favourite supplier!" data-ar="‏ECC مورّد مرن للغاية ويبذل قصارى جهده لإسعاد عملائه. يقدّمون أفكار منتجات جديدة ونكهات وألوان مبتكرة، ويفعلون كل ما بوسعهم لتلبية احتياجات العميل — أنتم المورّد المفضّل لديّ!">ECC are a very flexible supplier who will do its best to keep their customers happy. They present many good new product ideas, innovative flavours and colours, and will do everything in their power to match what the customer needs — You are my favourite supplier!</blockquote>
+              <img class="testi__avatar" src="images/person_4.jpg" alt="" loading="lazy" width="74" height="74" data-fallback data-label="PM" data-ph-class="testi__avatar">
+              <figcaption><div class="testi__name" data-en="Purchasing Manager" data-ar="مدير المشتريات">Purchasing Manager</div><div class="testi__role" data-en="Sweden" data-ar="السويد">Sweden</div></figcaption>
             </figure>
             <figure class="testi__slide">
-              <blockquote class="testi__quote">ECC are a great company to work with, friendly and efficient. With a great product range, ECC can always supply me several inclusions samples to choose from so that I can choose the best one for my application. ECC are always willing to look at developing specific inclusions for my requirements. Top quality inclusions delivered on time with no extra fuss.</blockquote>
-              <img class="testi__avatar" src="images/person_3.jpg" alt="" loading="lazy" width="72" height="72" data-fallback data-label="RD" data-ph-class="testi__avatar media-ph">
-              <figcaption><div class="testi__name">R&amp;D Department</div><div class="testi__role">Food Company</div></figcaption>
+              <div class="testi__mark" aria-hidden="true">&#8220;</div>
+              <blockquote class="testi__quote" data-en="ECC are a great company to work with, friendly and efficient. With a great product range, ECC can always supply me several samples to choose from. Top quality inclusions delivered on time with no extra fuss." data-ar="‏ECC شركة رائعة في التعامل، ودودة وفعّالة. بفضل تشكيلتها الواسعة، توفّر لي دائماً عيّنات متعددة للاختيار من بينها. منتجات عالية الجودة تُسلَّم في موعدها دون أي تعقيد.">ECC are a great company to work with, friendly and efficient. With a great product range, ECC can always supply me several samples to choose from. Top quality inclusions delivered on time with no extra fuss.</blockquote>
+              <img class="testi__avatar" src="images/person_3.jpg" alt="" loading="lazy" width="74" height="74" data-fallback data-label="RD" data-ph-class="testi__avatar">
+              <figcaption><div class="testi__name" data-en="R&amp;D Department" data-ar="قسم البحث والتطوير">R&amp;D Department</div><div class="testi__role" data-en="Food Company" data-ar="شركة أغذية">Food Company</div></figcaption>
             </figure>
           </div>
           <div class="testi__controls">
-            <button class="testi__arrow" data-prev type="button" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 9 12l6 6 1.4-1.4L11.8 12l4.6-4.6z"/></svg></button>
+            <button class="testi__arrow" data-prev type="button" aria-label="Previous" data-aria-en="Previous testimonial" data-aria-ar="السابق"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 9 12l6 6 1.4-1.4L11.8 12l4.6-4.6z"/></svg></button>
             <div class="testi__dots" role="tablist" aria-label="Choose testimonial"></div>
-            <button class="testi__arrow" data-next type="button" aria-label="Next testimonial"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6-1.4-1.4L12.2 12 7.6 7.4z"/></svg></button>
+            <button class="testi__arrow" data-next type="button" aria-label="Next" data-aria-en="Next testimonial" data-aria-ar="التالي"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6-1.4-1.4L12.2 12 7.6 7.4z"/></svg></button>
           </div>
         </div>
       </div>
@@ -209,34 +231,34 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo_footer.png" alt="Egyptian Canadian Company logo" width="150" height="48" loading="lazy">
-          <p>One of the top food import and export companies in Egypt.</p>
+          <img src="images/logo_footer.png" alt="Egyptian Canadian Company logo" width="150" height="50" loading="lazy">
+          <p data-en="One of the top food import and export companies in Egypt." data-ar="واحدة من كبرى شركات استيراد وتصدير الأغذية في مصر.">One of the top food import and export companies in Egypt.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/basalfactory" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
-            <a href="https://goo.gl/maps/5za31Y7hW6uAE3yUA" target="_blank" rel="noopener" aria-label="Location on Google Maps"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg></a>
+            <a href="https://goo.gl/maps/5za31Y7hW6uAE3yUA" target="_blank" rel="noopener" aria-label="Location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg></a>
           </div>
         </div>
         <div class="footer-col">
-          <h4>Products</h4>
+          <h4 data-en="Products" data-ar="المنتجات">Products</h4>
           <ul>
-            <li><a href="products.html">Red lentils</a></li>
-            <li><a href="products.html">Lupine</a></li>
-            <li><a href="products.html">Faba bean</a></li>
-            <li><a href="products.html">Popcorn</a></li>
-            <li><a href="products.html">Black-eyed beans</a></li>
+            <li><a href="products.html" data-en="Red lentils" data-ar="عدس أحمر">Red lentils</a></li>
+            <li><a href="products.html" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
+            <li><a href="products.html" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
+            <li><a href="products.html" data-en="Popcorn" data-ar="فشار">Popcorn</a></li>
+            <li><a href="products.html" data-en="Black-eyed beans" data-ar="لوبيا">Black-eyed beans</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4 data-en="Company" data-ar="الشركة">Company</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="about.html" data-en="About Us" data-ar="من نحن">About Us</a></li>
+            <li><a href="products.html" data-en="Products" data-ar="المنتجات">Products</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4 data-en="Contact" data-ar="تواصل معنا">Contact</h4>
           <ul>
             <li><a href="tel:+201009577227">&#128222; 01009577227</a></li>
             <li><a href="https://api.whatsapp.com/send?phone=201061130918" target="_blank" rel="noopener">&#128172; +20 106 113 0918</a></li>
@@ -245,10 +267,12 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; <span id="year">2026</span> Egyptian Canadian Company. All rights reserved.
+        &copy; <span id="year">2026</span> <span data-en="Egyptian Canadian Company. All rights reserved." data-ar="الشركة المصرية الكندية. جميع الحقوق محفوظة.">Egyptian Canadian Company. All rights reserved.</span>
       </div>
     </div>
   </footer>
+
+  <button class="to-top" aria-label="Back to top" data-aria-en="Back to top" data-aria-ar="العودة للأعلى"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8l6 6-1.4 1.4L12 10.8l-4.6 4.6L6 14z"/></svg></button>
 
   <script src="js/main.js" defer></script>
 </body>

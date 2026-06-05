@@ -1,16 +1,61 @@
 /* =========================================================================
    Egyptian Canadian Company (EC) — main.js
-   Nav toggle · animated counters · scroll reveal · testimonial slider
-   · graceful image fallbacks. Vanilla JS, no dependencies.
+   i18n EN/AR toggle (RTL) · sticky header · counters · reveal · slider
+   · product filter · image fallback · back-to-top. Vanilla JS, no deps.
    ========================================================================= */
 (function () {
   "use strict";
 
-  /* ---------- Mobile nav toggle ---------- */
+  /* ----------------------------------------------------------------
+     LANGUAGE (EN / AR with RTL)
+  ---------------------------------------------------------------- */
+  var STORE_KEY = "ec-lang";
+  var html = document.documentElement;
+
+  function applyLang(lang) {
+    var ar = lang === "ar";
+    html.setAttribute("lang", ar ? "ar" : "en");
+    html.setAttribute("dir", ar ? "rtl" : "ltr");
+
+    // text content
+    document.querySelectorAll("[data-en]").forEach(function (el) {
+      var val = ar ? el.getAttribute("data-ar") : el.getAttribute("data-en");
+      if (val !== null && val !== undefined) el.textContent = val;
+    });
+    // placeholders
+    document.querySelectorAll("[data-ph-en]").forEach(function (el) {
+      el.setAttribute("placeholder", ar ? el.getAttribute("data-ph-ar") : el.getAttribute("data-ph-en"));
+    });
+    // aria-labels
+    document.querySelectorAll("[data-aria-en]").forEach(function (el) {
+      el.setAttribute("aria-label", ar ? el.getAttribute("data-aria-ar") : el.getAttribute("data-aria-en"));
+    });
+    // document title
+    if (document.body.getAttribute("data-title-" + (ar ? "ar" : "en"))) {
+      document.title = document.body.getAttribute("data-title-" + (ar ? "ar" : "en"));
+    }
+
+    // switch buttons state
+    document.querySelectorAll(".lang-switch button").forEach(function (b) {
+      b.classList.toggle("is-active", b.getAttribute("data-lang") === lang);
+    });
+    try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+  }
+
+  var saved = "en";
+  try { saved = localStorage.getItem(STORE_KEY) || "en"; } catch (e) {}
+  applyLang(saved);
+
+  document.querySelectorAll(".lang-switch button").forEach(function (b) {
+    b.addEventListener("click", function () { applyLang(b.getAttribute("data-lang")); });
+  });
+
+  /* ----------------------------------------------------------------
+     MOBILE NAV
+  ---------------------------------------------------------------- */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("primary-nav");
   var backdrop = document.querySelector(".nav-backdrop");
-
   function closeNav() {
     if (!nav) return;
     nav.classList.remove("is-open");
@@ -26,139 +71,155 @@
   }
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
-      if (nav.classList.contains("is-open")) closeNav(); else openNav();
+      nav.classList.contains("is-open") ? closeNav() : openNav();
     });
     if (backdrop) backdrop.addEventListener("click", closeNav);
-    nav.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") closeNav();
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeNav();
-    });
+    nav.addEventListener("click", function (e) { if (e.target.tagName === "A") closeNav(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeNav(); });
   }
 
-  /* ---------- Graceful image fallback ----------
-     If a real photo is missing (404), swap the <img> for a styled box
-     that shows the descriptive label, so the layout stays clean. */
+  /* ----------------------------------------------------------------
+     STICKY HEADER SHADOW
+  ---------------------------------------------------------------- */
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 8); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ----------------------------------------------------------------
+     IMAGE FALLBACK (graceful placeholder)
+  ---------------------------------------------------------------- */
   function buildPlaceholder(img) {
     var ph = document.createElement("div");
-    var cls = img.getAttribute("data-ph-class") || "media-ph";
-    ph.className = cls + " " + (img.className || "");
+    ph.className = "media-ph " + (img.getAttribute("data-ph-class") || "");
     ph.setAttribute("role", "img");
     var label = img.getAttribute("data-label") || img.getAttribute("alt") || "";
     ph.setAttribute("aria-label", label);
     ph.textContent = label;
     if (img.parentNode) img.parentNode.replaceChild(ph, img);
   }
-  Array.prototype.forEach.call(document.querySelectorAll("img[data-fallback]"), function (img) {
+  document.querySelectorAll("img[data-fallback]").forEach(function (img) {
     img.addEventListener("error", function () { buildPlaceholder(img); });
-    // Already failed before listener attached (cached)
     if (img.complete && img.naturalWidth === 0) buildPlaceholder(img);
   });
 
-  /* ---------- Scroll reveal ---------- */
+  /* ----------------------------------------------------------------
+     SCROLL REVEAL
+  ---------------------------------------------------------------- */
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
-    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+    revealEls.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---------- Animated counters ---------- */
+  /* ----------------------------------------------------------------
+     ANIMATED COUNTERS
+  ---------------------------------------------------------------- */
   function animateCounter(el) {
     var target = parseFloat(el.getAttribute("data-count")) || 0;
-    var duration = 1600;
-    var start = null;
-    var fmt = new Intl.NumberFormat("en-US");
+    var dur = 1700, start = null, fmt = new Intl.NumberFormat("en-US");
     function step(ts) {
       if (start === null) start = ts;
-      var p = Math.min((ts - start) / duration, 1);
-      // easeOutCubic
+      var p = Math.min((ts - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
       el.textContent = fmt.format(Math.round(target * eased));
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = fmt.format(target);
+      if (p < 1) requestAnimationFrame(step); else el.textContent = fmt.format(target);
     }
     requestAnimationFrame(step);
   }
   var counters = document.querySelectorAll("[data-count]");
   if ("IntersectionObserver" in window && counters.length) {
     var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          cio.unobserve(entry.target);
-        }
-      });
+      entries.forEach(function (e) { if (e.isIntersecting) { animateCounter(e.target); cio.unobserve(e.target); } });
     }, { threshold: 0.5 });
     counters.forEach(function (el) { cio.observe(el); });
   } else {
     counters.forEach(function (el) { el.textContent = el.getAttribute("data-count"); });
   }
 
-  /* ---------- Testimonial slider ---------- */
+  /* ----------------------------------------------------------------
+     TESTIMONIAL SLIDER
+  ---------------------------------------------------------------- */
   var slider = document.querySelector("[data-slider]");
   if (slider) {
-    var slides = Array.prototype.slice.call(slider.querySelectorAll(".testi__slide"));
+    var slides = [].slice.call(slider.querySelectorAll(".testi__slide"));
     var dotsWrap = slider.querySelector(".testi__dots");
     var prevBtn = slider.querySelector("[data-prev]");
     var nextBtn = slider.querySelector("[data-next]");
-    var index = 0;
-    var timer = null;
-    var INTERVAL = 6000;
-
+    var index = 0, timer = null, INTERVAL = 6500;
     var dots = slides.map(function (_, i) {
       var b = document.createElement("button");
-      b.className = "testi__dot";
-      b.type = "button";
+      b.className = "testi__dot"; b.type = "button";
       b.setAttribute("aria-label", "Show testimonial " + (i + 1));
       b.addEventListener("click", function () { go(i); restart(); });
       if (dotsWrap) dotsWrap.appendChild(b);
       return b;
     });
-
     function go(i) {
       index = (i + slides.length) % slides.length;
-      slides.forEach(function (s, n) {
-        s.classList.toggle("is-active", n === index);
-        s.setAttribute("aria-hidden", n === index ? "false" : "true");
-      });
+      slides.forEach(function (s, n) { s.classList.toggle("is-active", n === index); s.setAttribute("aria-hidden", n === index ? "false" : "true"); });
       dots.forEach(function (d, n) { d.classList.toggle("is-active", n === index); });
     }
     function next() { go(index + 1); }
     function prev() { go(index - 1); }
     function restart() { if (timer) clearInterval(timer); timer = setInterval(next, INTERVAL); }
-
     if (nextBtn) nextBtn.addEventListener("click", function () { next(); restart(); });
     if (prevBtn) prevBtn.addEventListener("click", function () { prev(); restart(); });
     slider.addEventListener("mouseenter", function () { if (timer) clearInterval(timer); });
     slider.addEventListener("mouseleave", restart);
-
-    go(0);
-    restart();
+    go(0); restart();
   }
 
-  /* ---------- Footer year ---------- */
+  /* ----------------------------------------------------------------
+     PRODUCT FILTER CHIPS
+  ---------------------------------------------------------------- */
+  var chips = document.querySelectorAll(".chip[data-filter]");
+  if (chips.length) {
+    var products = document.querySelectorAll(".product[data-cat]");
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        chips.forEach(function (c) { c.classList.remove("is-active"); });
+        chip.classList.add("is-active");
+        var f = chip.getAttribute("data-filter");
+        products.forEach(function (p) {
+          var show = f === "all" || p.getAttribute("data-cat") === f;
+          p.style.display = show ? "" : "none";
+        });
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------------
+     BACK TO TOP
+  ---------------------------------------------------------------- */
+  var toTop = document.querySelector(".to-top");
+  if (toTop) {
+    window.addEventListener("scroll", function () { toTop.classList.toggle("show", window.scrollY > 600); }, { passive: true });
+    toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+  }
+
+  /* ----------------------------------------------------------------
+     FOOTER YEAR
+  ---------------------------------------------------------------- */
   var yr = document.getElementById("year");
   if (yr) yr.textContent = new Date().getFullYear();
 
-  /* ---------- Contact form: WhatsApp fallback prefill ---------- */
+  /* ----------------------------------------------------------------
+     CONTACT FORM → WhatsApp fallback prefill
+  ---------------------------------------------------------------- */
   var waFallback = document.getElementById("wa-fallback");
   if (waFallback) {
-    waFallback.addEventListener("click", function (e) {
+    waFallback.addEventListener("click", function () {
       var form = document.getElementById("contact-form");
       if (!form) return;
       var get = function (n) { var f = form.elements[n]; return f ? f.value.trim() : ""; };
-      var msg =
-        "Hello Egyptian Canadian Company,%0A" +
+      var msg = "Hello Egyptian Canadian Company,%0A" +
         "Name: " + encodeURIComponent(get("first_name") + " " + get("last_name")) + "%0A" +
         "Email: " + encodeURIComponent(get("email")) + "%0A" +
         "Tel: " + encodeURIComponent(get("tel")) + "%0A" +
