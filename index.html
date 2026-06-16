@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Egyptian Canadian Company | Pulses Import &amp; Export in Egypt</title>
-  <meta name="description" content="Egyptian Canadian Company (EC) imports and exports world pulses — lentils, chickpeas, faba beans and more — to wholesalers and food manufacturers in Egypt and beyond.">
+  <meta name="description" content="Egyptian Canadian Company (EC) imports and exports world pulses — lentils, chickpeas, faba beans, lupine and more — to wholesalers and food manufacturers in Egypt and beyond. Request a quote on WhatsApp.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://ec-egypt.com/">
 
   <meta property="og:type" content="website">
@@ -34,16 +35,36 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Egyptian Canadian Company",
-    "alternateName": ["EC", "ECC"],
-    "url": "https://ec-egypt.com/",
-    "logo": "https://ec-egypt.com/images/logo.png",
-    "description": "Egyptian importing and exporting company bringing world pulses to wholesalers and food manufacturers in Egypt and surrounding countries.",
-    "telephone": "+201009577227",
-    "sameAs": ["https://www.facebook.com/basalfactory"],
-    "address": { "@type": "PostalAddress", "addressCountry": "EG", "addressRegion": "Egypt" },
-    "contactPoint": { "@type": "ContactPoint", "telephone": "+201009577227", "contactType": "sales", "areaServed": "EG", "availableLanguage": ["en","ar"] }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ec-egypt.com/#organization",
+        "name": "Egyptian Canadian Company",
+        "alternateName": ["EC", "ECC"],
+        "url": "https://ec-egypt.com/",
+        "logo": "https://ec-egypt.com/images/logo.png",
+        "image": "https://ec-egypt.com/images/hero_1.jpg",
+        "email": "info@ec-egypt.com",
+        "description": "Egyptian importing and exporting company bringing world pulses to wholesalers and food manufacturers in Egypt and surrounding countries.",
+        "telephone": "+201009577227",
+        "sameAs": ["https://www.facebook.com/basalfactory"],
+        "address": { "@type": "PostalAddress", "addressCountry": "EG", "addressRegion": "Egypt" },
+        "areaServed": ["EG", "Egypt and surrounding countries"],
+        "knowsAbout": ["Pulses", "Lentils", "Chickpeas", "Faba beans", "Lupine", "Basmati rice", "Food import", "Food export"],
+        "contactPoint": [
+          { "@type": "ContactPoint", "telephone": "+201009577227", "contactType": "sales", "areaServed": "EG", "availableLanguage": ["en","ar"] },
+          { "@type": "ContactPoint", "telephone": "+201061130918", "contactType": "customer support", "contactOption": "TollFree", "availableLanguage": ["en","ar"] }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ec-egypt.com/#website",
+        "url": "https://ec-egypt.com/",
+        "name": "Egyptian Canadian Company",
+        "inLanguage": ["en", "ar"],
+        "publisher": { "@id": "https://ec-egypt.com/#organization" }
+      }
+    ]
   }
   </script>
 </head>

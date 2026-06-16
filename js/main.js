@@ -211,20 +211,48 @@
   if (yr) yr.textContent = new Date().getFullYear();
 
   /* ----------------------------------------------------------------
-     CONTACT FORM → WhatsApp fallback prefill
+     CONTACT FORM → WhatsApp (works even without a form backend)
   ---------------------------------------------------------------- */
+  var WA_PHONE = "201061130918";
+  var contactForm = document.getElementById("contact-form");
+
+  function buildWaLink(form) {
+    var get = function (n) { var f = form.elements[n]; return f ? f.value.trim() : ""; };
+    var msg = "Hello Egyptian Canadian Company,%0A" +
+      "Name: " + encodeURIComponent(get("first_name") + " " + get("last_name")) + "%0A" +
+      "Email: " + encodeURIComponent(get("email")) + "%0A" +
+      "Tel: " + encodeURIComponent(get("tel")) + "%0A" +
+      "Message: " + encodeURIComponent(get("message"));
+    return "https://api.whatsapp.com/send?phone=" + WA_PHONE + "&text=" + msg;
+  }
+
   var waFallback = document.getElementById("wa-fallback");
-  if (waFallback) {
+  if (waFallback && contactForm) {
     waFallback.addEventListener("click", function () {
-      var form = document.getElementById("contact-form");
-      if (!form) return;
-      var get = function (n) { var f = form.elements[n]; return f ? f.value.trim() : ""; };
-      var msg = "Hello Egyptian Canadian Company,%0A" +
-        "Name: " + encodeURIComponent(get("first_name") + " " + get("last_name")) + "%0A" +
-        "Email: " + encodeURIComponent(get("email")) + "%0A" +
-        "Tel: " + encodeURIComponent(get("tel")) + "%0A" +
-        "Message: " + encodeURIComponent(get("message"));
-      waFallback.href = "https://api.whatsapp.com/send?phone=201061130918&text=" + msg;
+      waFallback.href = buildWaLink(contactForm);
     });
+  }
+
+  // No real form backend wired yet → make "Send Message" reach us via WhatsApp
+  if (contactForm && /YOUR_FORM_ID/.test(contactForm.getAttribute("action") || "")) {
+    contactForm.addEventListener("submit", function (e) {
+      if (typeof contactForm.checkValidity === "function" && !contactForm.checkValidity()) return;
+      e.preventDefault();
+      window.open(buildWaLink(contactForm), "_blank", "noopener");
+    });
+  }
+
+  /* ----------------------------------------------------------------
+     FLOATING WHATSAPP BUTTON (injected on every page)
+  ---------------------------------------------------------------- */
+  if (!document.querySelector(".wa-float")) {
+    var wa = document.createElement("a");
+    wa.className = "wa-float";
+    wa.href = "https://api.whatsapp.com/send?phone=" + WA_PHONE;
+    wa.target = "_blank";
+    wa.rel = "noopener";
+    wa.setAttribute("aria-label", "Chat with us on WhatsApp");
+    wa.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.8 2.8 0 0 0 6 8c0 1.7 1.2 3.3 1.4 3.5s2.4 3.7 5.8 5c2.1.8 2.1.5 2.5.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>';
+    document.body.appendChild(wa);
   }
 })();
