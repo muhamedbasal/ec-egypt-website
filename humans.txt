@@ -1,0 +1,8 @@
+/* TEAM */
+Company: Egyptian Canadian Company (EC / ECC)
+Contact: info@ec-egypt.com
+Location: Egypt
+
+/* SITE */
+Standards: HTML5, JSON-LD
+Software: Static HTML, hand-authored

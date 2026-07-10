@@ -1,0 +1,4 @@
+Contact: mailto:info@ec-egypt.com
+Expires: 2027-07-10T00:00:00Z
+Canonical: https://ec-egypt.com/.well-known/security.txt
+Preferred-Languages: en, ar
