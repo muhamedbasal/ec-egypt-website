@@ -3,6 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  ad_storage:'denied',
+  analytics_storage:'denied',
+  ad_user_data:'denied',
+  ad_personalization:'denied',
+  wait_for_update:500
+});
+</script>
+<!-- Google Tag Manager & GA4 (lazy-loaded on first interaction).
+     Not active yet: EC-Egypt needs its own GTM/GA4 property IDs below —
+     do NOT reuse Admiral Agro's IDs, that would mix two businesses' data. -->
+<script>
+(function() {
+  var GTM_ID = 'GTM-XXXXXXX';
+  var GA4_ID = 'G-XXXXXXXXXX';
+  if (GTM_ID.indexOf('XXXXXXX') !== -1 || GA4_ID.indexOf('XXXXXXXXXX') !== -1) return;
+  var gtmLoaded = false;
+  function loadTracking() {
+    if (gtmLoaded) return;
+    gtmLoaded = true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',GTM_ID);
+    var s1 = document.createElement('script');
+    s1.async = true;
+    s1.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(s1);
+    var s2 = document.createElement('script');
+    s2.text = "window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','" + GA4_ID + "');";
+    document.head.appendChild(s2);
+  }
+  var fallback = setTimeout(loadTracking, 3500);
+  ['scroll', 'click', 'mousemove', 'touchstart'].forEach(function(evt) {
+    window.addEventListener(evt, function() {
+      clearTimeout(fallback);
+      loadTracking();
+    }, { once: true, passive: true });
+  });
+  document.addEventListener('click', function(e) {
+    var wa = e.target.closest && e.target.closest('a[href*="api.whatsapp.com"]');
+    if (wa && typeof gtag !== 'undefined') gtag('event', 'whatsapp_click', {event_category: 'engagement', event_label: document.title});
+  });
+  document.addEventListener('submit', function(e) {
+    if (e.target && e.target.id === 'contact-form' && typeof gtag !== 'undefined') {
+      gtag('event', 'generate_lead', {event_category: 'Quote', event_label: 'Contact Form', value: 1});
+    }
+  });
+})();
+</script>
 
   <title>Contact Us | Egyptian Canadian Company</title>
   <meta name="description" content="Get in touch with Egyptian Canadian Company for pulse supply, quotes, and partnership inquiries — by WhatsApp, phone or email.">
@@ -252,6 +302,12 @@
   </footer>
 
   <button class="to-top" aria-label="Back to top" data-aria-en="Back to top" data-aria-ar="العودة للأعلى"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8l6 6-1.4 1.4L12 10.8l-4.6 4.6L6 14z"/></svg></button>
+
+  <div id="ck-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--green);color:var(--white);padding:14px 24px;font-size:.85rem;z-index:9999;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <span data-en="This site uses only technical cookies necessary for operation. No tracking or analytics cookies are set without consent." data-ar="يستخدم هذا الموقع فقط ملفات تعريف ارتباط تقنية ضرورية للتشغيل. لا نضع أي ملفات تعريف ارتباط للتتبع أو التحليلات دون موافقتك.">This site uses only technical cookies necessary for operation. No tracking or analytics cookies are set without consent.</span>
+    <button type="button" onclick="localStorage.setItem('ck_ack','1');document.getElementById('ck-banner').style.display='none'" style="background:var(--gold-bright);color:var(--ink);border:none;padding:8px 20px;border-radius:var(--radius);cursor:pointer;font-weight:600;white-space:nowrap" data-en="OK" data-ar="حسناً">OK</button>
+  </div>
+  <script>(function(){if(!localStorage.getItem('ck_ack')){var b=document.getElementById('ck-banner');if(b)b.style.display='flex';}})();</script>
 
   <script src="js/main.js" defer></script>
 </body>
