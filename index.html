@@ -3,67 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{
-  ad_storage:'denied',
-  analytics_storage:'denied',
-  ad_user_data:'denied',
-  ad_personalization:'denied',
-  wait_for_update:500
-});
-</script>
-<!-- Google Tag Manager & GA4 (lazy-loaded on first interaction).
-     Not active yet: EC-Egypt needs its own GTM/GA4 property IDs below —
-     do NOT reuse Admiral Agro's IDs, that would mix two businesses' data. -->
-<script>
-(function() {
-  var GTM_ID = 'GTM-XXXXXXX';
-  var GA4_ID = 'G-XXXXXXXXXX';
-  if (GTM_ID.indexOf('XXXXXXX') !== -1 || GA4_ID.indexOf('XXXXXXXXXX') !== -1) return;
-  var gtmLoaded = false;
-  function loadTracking() {
-    if (gtmLoaded) return;
-    gtmLoaded = true;
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',GTM_ID);
-    var s1 = document.createElement('script');
-    s1.async = true;
-    s1.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-    document.head.appendChild(s1);
-    var s2 = document.createElement('script');
-    s2.text = "window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','" + GA4_ID + "');";
-    document.head.appendChild(s2);
-  }
-  var fallback = setTimeout(loadTracking, 3500);
-  ['scroll', 'click', 'mousemove', 'touchstart'].forEach(function(evt) {
-    window.addEventListener(evt, function() {
-      clearTimeout(fallback);
-      loadTracking();
-    }, { once: true, passive: true });
-  });
-  document.addEventListener('click', function(e) {
-    var wa = e.target.closest && e.target.closest('a[href*="api.whatsapp.com"]');
-    if (wa && typeof gtag !== 'undefined') gtag('event', 'whatsapp_click', {event_category: 'engagement', event_label: document.title});
-  });
-  document.addEventListener('submit', function(e) {
-    if (e.target && e.target.id === 'contact-form' && typeof gtag !== 'undefined') {
-      gtag('event', 'generate_lead', {event_category: 'Quote', event_label: 'Contact Form', value: 1});
-    }
-  });
-})();
-</script>
+<!-- EC-owned GA4 measurement is initialized by js/measurement.js after consent. -->
 
-  <title>Egyptian Canadian Company | Pulses Import &amp; Export in Egypt</title>
-  <meta name="description" content="Egyptian Canadian Company (EC) imports and exports pulses — lentils, chickpeas, faba beans, lupine — for wholesalers and food manufacturers.">
+  <title>Wholesale Pulses &amp; Grains in Egypt | Egyptian Canadian Company</title>
+  <meta name="description" content="Egyptian Canadian Company supplies pulses and grains for wholesalers and food manufacturers in Egypt: lentils, chickpeas, faba beans, lupine and basmati rice. Request a quote.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://ec-egypt.com/">
+  <link rel="alternate" hreflang="en" href="https://ec-egypt.com/">
+  <link rel="alternate" hreflang="ar" href="https://ec-egypt.com/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://ec-egypt.com/">
   <link rel="alternate" type="text/plain" href="https://ec-egypt.com/llms.txt">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Egyptian Canadian Company">
-  <meta property="og:title" content="Egyptian Canadian Company | Pulses Import &amp; Export in Egypt">
-  <meta property="og:description" content="World pulses — lentils, chickpeas, faba beans and more — for wholesalers and food manufacturers.">
+  <meta property="og:title" content="Wholesale Pulses &amp; Grains in Egypt | Egyptian Canadian Company">
+  <meta property="og:description" content="Pulses and grains for wholesalers and food manufacturers in Egypt: lentils, chickpeas, faba beans, lupine and basmati rice. Request a quote.">
   <meta property="og:url" content="https://ec-egypt.com/">
   <meta property="og:image" content="https://ec-egypt.com/images/hero_1.jpg">
   <meta property="og:image:width" content="700">
@@ -71,8 +25,8 @@ gtag('consent','default',{
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ar_EG">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Egyptian Canadian Company | Pulses Import &amp; Export">
-  <meta name="twitter:description" content="World pulses for wholesalers and food manufacturers.">
+  <meta name="twitter:title" content="Wholesale Pulses &amp; Grains in Egypt | Egyptian Canadian Company">
+  <meta name="twitter:description" content="Pulses and grains for wholesalers and food manufacturers in Egypt. Request a quote for lentils, chickpeas, faba beans, lupine and basmati rice.">
   <meta name="twitter:image" content="https://ec-egypt.com/images/hero_1.jpg">
 
   <meta name="theme-color" content="#0E3B26">
@@ -119,7 +73,7 @@ gtag('consent','default',{
         },
         "contactPoint": [
           { "@type": "ContactPoint", "telephone": "+201009577227", "contactType": "sales", "areaServed": "EG", "availableLanguage": ["en","ar"] },
-          { "@type": "ContactPoint", "telephone": "+201061130918", "contactType": "customer support", "contactOption": "TollFree", "availableLanguage": ["en","ar"] }
+          { "@type": "ContactPoint", "telephone": "+201061130918", "contactType": "customer support", "availableLanguage": ["en","ar"] }
         ]
       },
       {
@@ -160,7 +114,7 @@ gtag('consent','default',{
   }
   </script>
 </head>
-<body data-title-en="Egyptian Canadian Company | Pulses Import & Export in Egypt" data-title-ar="الشركة المصرية الكندية | استيراد وتصدير البقوليات في مصر">
+<body data-title-en="Wholesale Pulses & Grains in Egypt | Egyptian Canadian Company" data-title-ar="الشركة المصرية الكندية | استيراد وتصدير البقوليات في مصر">
   <a class="skip-link" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
 
   <!-- Top bar -->
@@ -181,8 +135,8 @@ gtag('consent','default',{
       </a>
       <span class="topbar__sep" aria-hidden="true"></span>
       <div class="lang-switch" role="group" aria-label="Language">
-        <button type="button" data-lang="en" class="is-active">EN</button>
-        <button type="button" data-lang="ar" lang="ar" aria-label="العربية" title="العربية">ع</button>
+        <a href="index.html" lang="en" hreflang="en" class="is-active" aria-current="true">EN</a>
+        <a href="ar/index.html" lang="ar" hreflang="ar" aria-label="العربية">ع</a>
       </div>
     </div>
   </div>
@@ -205,11 +159,11 @@ gtag('consent','default',{
           <li class="has-dropdown">
             <a href="products.html" data-en="Products" data-ar="المنتجات">Products</a>
             <ul class="dropdown">
-              <li><a href="products.html" data-en="Red lentils" data-ar="عدس أحمر">Red lentils</a></li>
-              <li><a href="products.html" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
-              <li><a href="products.html" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
-              <li><a href="products.html" data-en="Popcorn" data-ar="فشار">Popcorn</a></li>
-              <li><a href="products.html" data-en="Black-eyed beans" data-ar="لوبيا">Black-eyed beans</a></li>
+              <li><a href="products.html#yellow-split-lentils" data-en="Lentils" data-ar="عدس">Lentils</a></li>
+              <li><a href="products.html#lupine" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
+              <li><a href="products.html#australian-faba-bean" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
+              <li><a href="products.html#chickpeas" data-en="Chickpeas" data-ar="حمص">Chickpeas</a></li>
+              <li><a href="products.html#basmati-rice" data-en="Basmati rice" data-ar="أرز بسمتي">Basmati rice</a></li>
             </ul>
           </li>
           <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
@@ -224,7 +178,7 @@ gtag('consent','default',{
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__bg"><img src="images/hero_1.jpg" alt="" fetchpriority="high" width="1600" height="900"></div>
+      <div class="hero__bg"><img src="images/hero_1.jpg" alt="" fetchpriority="high" width="700" height="467"></div>
       <div class="container">
         <div class="hero__inner">
           <span class="hero__kicker" data-en="Egyptian Canadian Company" data-ar="الشركة المصرية الكندية">Egyptian Canadian Company</span>
@@ -290,10 +244,10 @@ gtag('consent','default',{
     <section class="section stats">
       <div class="container">
         <div class="grid">
-          <div class="reveal"><div class="stat__num" data-count="10700">0</div><div class="stat__label" data-en="Number of Clients" data-ar="عدد العملاء">Number of Clients</div></div>
-          <div class="reveal d1"><div class="stat__num" data-count="82">0</div><div class="stat__label" data-en="Years of Experience" data-ar="سنوات الخبرة">Years of Experience</div></div>
-          <div class="reveal d2"><div class="stat__num" data-count="80">0</div><div class="stat__label" data-en="Employees" data-ar="الموظفون">Employees</div></div>
-          <div class="reveal d3"><div class="stat__num" data-count="5300">0</div><div class="stat__label" data-en="Cups of Coffee" data-ar="أكواب القهوة">Cups of Coffee</div></div>
+          <div class="reveal"><div class="stat__num" data-count="10700">10,700</div><div class="stat__label" data-en="Number of Clients" data-ar="عدد العملاء">Number of Clients</div></div>
+          <div class="reveal d1"><div class="stat__num" data-count="82">82</div><div class="stat__label" data-en="Years of Experience" data-ar="سنوات الخبرة">Years of Experience</div></div>
+          <div class="reveal d2"><div class="stat__num" data-count="80">80</div><div class="stat__label" data-en="Employees" data-ar="الموظفون">Employees</div></div>
+          <div class="reveal d3"><div class="stat__num" data-count="5300">5,300</div><div class="stat__label" data-en="Cups of Coffee" data-ar="أكواب القهوة">Cups of Coffee</div></div>
         </div>
       </div>
     </section>
@@ -453,11 +407,11 @@ gtag('consent','default',{
         <div class="footer-col">
           <h4 data-en="Products" data-ar="المنتجات">Products</h4>
           <ul>
-            <li><a href="products.html" data-en="Red lentils" data-ar="عدس أحمر">Red lentils</a></li>
-            <li><a href="products.html" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
-            <li><a href="products.html" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
-            <li><a href="products.html" data-en="Popcorn" data-ar="فشار">Popcorn</a></li>
-            <li><a href="products.html" data-en="Black-eyed beans" data-ar="لوبيا">Black-eyed beans</a></li>
+            <li><a href="products.html#yellow-split-lentils" data-en="Lentils" data-ar="عدس">Lentils</a></li>
+            <li><a href="products.html#lupine" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
+            <li><a href="products.html#australian-faba-bean" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
+            <li><a href="products.html#chickpeas" data-en="Chickpeas" data-ar="حمص">Chickpeas</a></li>
+            <li><a href="products.html#basmati-rice" data-en="Basmati rice" data-ar="أرز بسمتي">Basmati rice</a></li>
           </ul>
         </div>
         <div class="footer-col">

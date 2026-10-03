@@ -3,61 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{
-  ad_storage:'denied',
-  analytics_storage:'denied',
-  ad_user_data:'denied',
-  ad_personalization:'denied',
-  wait_for_update:500
-});
-</script>
-<!-- Google Tag Manager & GA4 (lazy-loaded on first interaction).
-     Not active yet: EC-Egypt needs its own GTM/GA4 property IDs below —
-     do NOT reuse Admiral Agro's IDs, that would mix two businesses' data. -->
-<script>
-(function() {
-  var GTM_ID = 'GTM-XXXXXXX';
-  var GA4_ID = 'G-XXXXXXXXXX';
-  if (GTM_ID.indexOf('XXXXXXX') !== -1 || GA4_ID.indexOf('XXXXXXXXXX') !== -1) return;
-  var gtmLoaded = false;
-  function loadTracking() {
-    if (gtmLoaded) return;
-    gtmLoaded = true;
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',GTM_ID);
-    var s1 = document.createElement('script');
-    s1.async = true;
-    s1.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-    document.head.appendChild(s1);
-    var s2 = document.createElement('script');
-    s2.text = "window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','" + GA4_ID + "');";
-    document.head.appendChild(s2);
-  }
-  var fallback = setTimeout(loadTracking, 3500);
-  ['scroll', 'click', 'mousemove', 'touchstart'].forEach(function(evt) {
-    window.addEventListener(evt, function() {
-      clearTimeout(fallback);
-      loadTracking();
-    }, { once: true, passive: true });
-  });
-  document.addEventListener('click', function(e) {
-    var wa = e.target.closest && e.target.closest('a[href*="api.whatsapp.com"]');
-    if (wa && typeof gtag !== 'undefined') gtag('event', 'whatsapp_click', {event_category: 'engagement', event_label: document.title});
-  });
-  document.addEventListener('submit', function(e) {
-    if (e.target && e.target.id === 'contact-form' && typeof gtag !== 'undefined') {
-      gtag('event', 'generate_lead', {event_category: 'Quote', event_label: 'Contact Form', value: 1});
-    }
-  });
-})();
-</script>
+<!-- EC-owned GA4 measurement is initialized by js/measurement.js after consent. -->
 
   <title>Contact Us | Egyptian Canadian Company</title>
   <meta name="description" content="Get in touch with Egyptian Canadian Company for pulse supply, quotes, and partnership inquiries — by WhatsApp, phone or email.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://ec-egypt.com/contact.html">
+  <link rel="alternate" hreflang="en" href="https://ec-egypt.com/contact.html">
+  <link rel="alternate" hreflang="ar" href="https://ec-egypt.com/ar/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://ec-egypt.com/contact.html">
   <link rel="alternate" type="text/plain" href="https://ec-egypt.com/llms.txt">
 
   <meta property="og:type" content="website">
@@ -133,8 +87,8 @@ gtag('consent','default',{
       </a>
       <span class="topbar__sep" aria-hidden="true"></span>
       <div class="lang-switch" role="group" aria-label="Language">
-        <button type="button" data-lang="en" class="is-active">EN</button>
-        <button type="button" data-lang="ar" lang="ar" aria-label="العربية" title="العربية">ع</button>
+        <a href="contact.html" lang="en" hreflang="en" class="is-active" aria-current="true">EN</a>
+        <a href="ar/contact.html" lang="ar" hreflang="ar" aria-label="العربية">ع</a>
       </div>
     </div>
   </div>
@@ -156,11 +110,11 @@ gtag('consent','default',{
           <li class="has-dropdown">
             <a href="products.html" data-en="Products" data-ar="المنتجات">Products</a>
             <ul class="dropdown">
-              <li><a href="products.html" data-en="Red lentils" data-ar="عدس أحمر">Red lentils</a></li>
-              <li><a href="products.html" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
-              <li><a href="products.html" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
-              <li><a href="products.html" data-en="Popcorn" data-ar="فشار">Popcorn</a></li>
-              <li><a href="products.html" data-en="Black-eyed beans" data-ar="لوبيا">Black-eyed beans</a></li>
+              <li><a href="products.html#yellow-split-lentils" data-en="Lentils" data-ar="عدس">Lentils</a></li>
+              <li><a href="products.html#lupine" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
+              <li><a href="products.html#australian-faba-bean" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
+              <li><a href="products.html#chickpeas" data-en="Chickpeas" data-ar="حمص">Chickpeas</a></li>
+              <li><a href="products.html#basmati-rice" data-en="Basmati rice" data-ar="أرز بسمتي">Basmati rice</a></li>
             </ul>
           </li>
           <li><a href="contact.html" aria-current="page" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
@@ -174,7 +128,7 @@ gtag('consent','default',{
   <main id="main">
 
     <section class="page-hero">
-      <div class="page-hero__bg"><img src="images/hero_1.jpg" alt="" width="1600" height="600"></div>
+      <div class="page-hero__bg"><img src="images/hero_1.jpg" alt="" width="700" height="467" fetchpriority="high"></div>
       <div class="container">
         <h1 data-en="Contact Us" data-ar="تواصل معنا">Contact Us</h1>
         <p class="lead" data-en="For pulse supply, quotes, and partnership inquiries — we'd love to hear from you." data-ar="لطلبات التوريد وعروض الأسعار والشراكات — يسعدنا تواصلك معنا.">For pulse supply, quotes, and partnership inquiries — we'd love to hear from you.</p>
@@ -190,10 +144,11 @@ gtag('consent','default',{
         <div class="form-card reveal">
           <span class="eyebrow" data-en="Send a message" data-ar="أرسل رسالة">Send a message</span>
           <h2 data-en="Let's work together" data-ar="لنعمل معاً">Let's work together</h2>
-          <p style="color:var(--muted); margin:8px 0 24px;" data-en="Fill in the form and we'll get back to you, or send your message directly on WhatsApp." data-ar="املأ النموذج وسنردّ عليك، أو أرسل رسالتك مباشرةً عبر واتساب.">Fill in the form and we'll get back to you, or send your message directly on WhatsApp.</p>
+          <p style="color:var(--muted); margin:8px 0 24px;" data-en="Prepare your inquiry below, then open WhatsApp to review and send it." data-ar="جهّز استفسارك أدناه، ثم افتح واتساب لمراجعة الرسالة وإرسالها.">Prepare your inquiry below, then open WhatsApp to review and send it.</p>
 
-          <!-- TODO: replace YOUR_FORM_ID with your Formspree endpoint (https://formspree.io) -->
-          <form id="contact-form" class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <!-- No form backend: this form prepares a message for the visitor to send. -->
+          <form id="contact-form" class="form" data-delivery="whatsapp" action="https://api.whatsapp.com/send" method="get" aria-describedby="delivery-note">
+            <input type="hidden" name="phone" value="201061130918">
             <div class="row">
               <div class="field">
                 <label for="first_name" data-en="First Name" data-ar="الاسم الأول">First Name</label>
@@ -207,21 +162,27 @@ gtag('consent','default',{
             <div class="row">
               <div class="field">
                 <label for="email" data-en="Email Address" data-ar="البريد الإلكتروني">Email Address</label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
+                <input id="email" name="email" type="email" autocomplete="email">
               </div>
               <div class="field">
                 <label for="tel" data-en="Tel. Number" data-ar="رقم الهاتف">Tel. Number</label>
                 <input id="tel" name="tel" type="tel" autocomplete="tel">
               </div>
             </div>
+            <div class="row">
+              <div class="field"><label for="product" data-en="Product and grade" data-ar="المنتج والرتبة">Product and grade</label><input id="product" name="product" type="text" maxlength="160" required></div>
+              <div class="field"><label for="quantity" data-en="Quantity and unit" data-ar="الكمية ووحدة القياس">Quantity and unit</label><input id="quantity" name="quantity" type="text" maxlength="100" required></div>
+            </div>
+            <div class="field"><label for="destination" data-en="Delivery city / country" data-ar="مدينة ودولة التسليم">Delivery city / country</label><input id="destination" name="destination" type="text" maxlength="160" required></div>
             <div class="field">
               <label for="message" data-en="Message" data-ar="الرسالة">Message</label>
-              <textarea id="message" name="message" required></textarea>
+              <textarea id="message" name="message" maxlength="2000"></textarea>
             </div>
             <div class="form__actions">
-              <button class="btn btn--primary" type="submit" data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button>
-              <a class="btn btn--wa" id="wa-fallback" href="https://api.whatsapp.com/send?phone=201061130918" target="_blank" rel="noopener" data-en="Send via WhatsApp" data-ar="أرسل عبر واتساب">Send via WhatsApp</a>
+              <button class="btn btn--primary" type="submit" disabled data-en="Review in WhatsApp" data-ar="راجع الرسالة في واتساب">Review in WhatsApp</button>
             </div>
+            <p id="delivery-note" data-en="Opening WhatsApp does not send your inquiry. Review the details and press Send in WhatsApp. Prices, stock, minimum order and delivery terms are confirmed by our team." data-ar="فتح واتساب لا يرسل استفسارك. راجع التفاصيل واضغط إرسال داخل واتساب. يؤكد فريقنا الأسعار والتوافر والحد الأدنى للطلب وشروط التسليم.">Opening WhatsApp does not send your inquiry. Review the details and press Send in WhatsApp. Prices, stock, minimum order and delivery terms are confirmed by our team.</p>
+            <noscript><p>JavaScript is needed to prepare the message. <a href="https://api.whatsapp.com/send?phone=201061130918">Open WhatsApp directly / افتح واتساب مباشرة</a> or call <a href="tel:+201009577227">+20 100 957 7227</a>.</p></noscript>
           </form>
         </div>
 
@@ -270,11 +231,11 @@ gtag('consent','default',{
         <div class="footer-col">
           <h4 data-en="Products" data-ar="المنتجات">Products</h4>
           <ul>
-            <li><a href="products.html" data-en="Red lentils" data-ar="عدس أحمر">Red lentils</a></li>
-            <li><a href="products.html" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
-            <li><a href="products.html" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
-            <li><a href="products.html" data-en="Popcorn" data-ar="فشار">Popcorn</a></li>
-            <li><a href="products.html" data-en="Black-eyed beans" data-ar="لوبيا">Black-eyed beans</a></li>
+            <li><a href="products.html#yellow-split-lentils" data-en="Lentils" data-ar="عدس">Lentils</a></li>
+            <li><a href="products.html#lupine" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
+            <li><a href="products.html#australian-faba-bean" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
+            <li><a href="products.html#chickpeas" data-en="Chickpeas" data-ar="حمص">Chickpeas</a></li>
+            <li><a href="products.html#basmati-rice" data-en="Basmati rice" data-ar="أرز بسمتي">Basmati rice</a></li>
           </ul>
         </div>
         <div class="footer-col">

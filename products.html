@@ -3,61 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',{
-  ad_storage:'denied',
-  analytics_storage:'denied',
-  ad_user_data:'denied',
-  ad_personalization:'denied',
-  wait_for_update:500
-});
-</script>
-<!-- Google Tag Manager & GA4 (lazy-loaded on first interaction).
-     Not active yet: EC-Egypt needs its own GTM/GA4 property IDs below —
-     do NOT reuse Admiral Agro's IDs, that would mix two businesses' data. -->
-<script>
-(function() {
-  var GTM_ID = 'GTM-XXXXXXX';
-  var GA4_ID = 'G-XXXXXXXXXX';
-  if (GTM_ID.indexOf('XXXXXXX') !== -1 || GA4_ID.indexOf('XXXXXXXXXX') !== -1) return;
-  var gtmLoaded = false;
-  function loadTracking() {
-    if (gtmLoaded) return;
-    gtmLoaded = true;
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',GTM_ID);
-    var s1 = document.createElement('script');
-    s1.async = true;
-    s1.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-    document.head.appendChild(s1);
-    var s2 = document.createElement('script');
-    s2.text = "window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','" + GA4_ID + "');";
-    document.head.appendChild(s2);
-  }
-  var fallback = setTimeout(loadTracking, 3500);
-  ['scroll', 'click', 'mousemove', 'touchstart'].forEach(function(evt) {
-    window.addEventListener(evt, function() {
-      clearTimeout(fallback);
-      loadTracking();
-    }, { once: true, passive: true });
-  });
-  document.addEventListener('click', function(e) {
-    var wa = e.target.closest && e.target.closest('a[href*="api.whatsapp.com"]');
-    if (wa && typeof gtag !== 'undefined') gtag('event', 'whatsapp_click', {event_category: 'engagement', event_label: document.title});
-  });
-  document.addEventListener('submit', function(e) {
-    if (e.target && e.target.id === 'contact-form' && typeof gtag !== 'undefined') {
-      gtag('event', 'generate_lead', {event_category: 'Quote', event_label: 'Contact Form', value: 1});
-    }
-  });
-})();
-</script>
+<!-- EC-owned GA4 measurement is initialized by js/measurement.js after consent. -->
 
   <title>Our Products | Egyptian Canadian Company</title>
   <meta name="description" content="Browse our pulses range — chickpeas, lentils, faba beans, lupine, basmati rice and more — available for wholesale and food manufacture. Tap Inquire to ask for a quote on WhatsApp.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://ec-egypt.com/products.html">
+  <link rel="alternate" hreflang="en" href="https://ec-egypt.com/products.html">
+  <link rel="alternate" hreflang="ar" href="https://ec-egypt.com/ar/products.html">
+  <link rel="alternate" hreflang="x-default" href="https://ec-egypt.com/products.html">
   <link rel="alternate" type="text/plain" href="https://ec-egypt.com/llms.txt">
 
   <meta property="og:type" content="website">
@@ -150,8 +104,8 @@ gtag('consent','default',{
       </a>
       <span class="topbar__sep" aria-hidden="true"></span>
       <div class="lang-switch" role="group" aria-label="Language">
-        <button type="button" data-lang="en" class="is-active">EN</button>
-        <button type="button" data-lang="ar" lang="ar" aria-label="العربية" title="العربية">ع</button>
+        <a href="products.html" lang="en" hreflang="en" class="is-active" aria-current="true">EN</a>
+        <a href="ar/products.html" lang="ar" hreflang="ar" aria-label="العربية">ع</a>
       </div>
     </div>
   </div>
@@ -173,11 +127,11 @@ gtag('consent','default',{
           <li class="has-dropdown">
             <a href="products.html" aria-current="page" data-en="Products" data-ar="المنتجات">Products</a>
             <ul class="dropdown">
-              <li><a href="products.html" data-en="Red lentils" data-ar="عدس أحمر">Red lentils</a></li>
-              <li><a href="products.html" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
-              <li><a href="products.html" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
-              <li><a href="products.html" data-en="Popcorn" data-ar="فشار">Popcorn</a></li>
-              <li><a href="products.html" data-en="Black-eyed beans" data-ar="لوبيا">Black-eyed beans</a></li>
+              <li><a href="products.html#yellow-split-lentils" data-en="Lentils" data-ar="عدس">Lentils</a></li>
+              <li><a href="products.html#lupine" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
+              <li><a href="products.html#australian-faba-bean" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
+              <li><a href="products.html#chickpeas" data-en="Chickpeas" data-ar="حمص">Chickpeas</a></li>
+              <li><a href="products.html#basmati-rice" data-en="Basmati rice" data-ar="أرز بسمتي">Basmati rice</a></li>
             </ul>
           </li>
           <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
@@ -191,7 +145,7 @@ gtag('consent','default',{
   <main id="main">
 
     <section class="page-hero">
-      <div class="page-hero__bg"><img src="images/hero_1.jpg" alt="" width="1600" height="600"></div>
+      <div class="page-hero__bg"><img src="images/hero_1.jpg" alt="" width="700" height="467" fetchpriority="high"></div>
       <div class="container">
         <h1 data-en="Our Products" data-ar="منتجاتنا">Our Products</h1>
         <p class="lead" data-en="World pulses for wholesale and food manufacture — sourced and supplied with care." data-ar="بقوليات العالم لتجار الجملة والتصنيع الغذائي — نختارها ونوردها بعناية.">World pulses for wholesale and food manufacture — sourced and supplied with care.</p>
@@ -209,6 +163,12 @@ gtag('consent','default',{
           <p data-en="Tap “Inquire” on any product to message us on WhatsApp." data-ar="اضغط «استفسر» على أي منتج لمراسلتنا على واتساب.">Tap “Inquire” on any product to message us on WhatsApp.</p>
         </div>
 
+        <aside class="quote-guide" aria-labelledby="quote-guide-title">
+          <h2 id="quote-guide-title" data-en="Request a wholesale quote" data-ar="اطلب عرض سعر للجملة">Request a wholesale quote</h2>
+          <p data-en="Tell us the product and grade, quantity with unit, delivery city and country, and any packaging requirements." data-ar="اذكر المنتج والرتبة والكمية ووحدة القياس ومدينة ودولة التسليم وأي متطلبات للتعبئة.">Tell us the product and grade, quantity with unit, delivery city and country, and any packaging requirements.</p>
+          <p data-en="Our team will confirm availability, minimum order, origin, specifications, packaging and delivery terms for your inquiry." data-ar="سيؤكد فريقنا التوافر والحد الأدنى للطلب والمنشأ والمواصفات والتعبئة وشروط التسليم حسب استفسارك.">Our team will confirm availability, minimum order, origin, specifications, packaging and delivery terms for your inquiry.</p>
+          <a class="btn btn--dark" href="contact.html" data-en="Prepare a quote request" data-ar="جهّز طلب عرض السعر">Prepare a quote request</a>
+        </aside>
         <div class="product-toolbar reveal">
           <button class="chip is-active" data-filter="all" data-en="All" data-ar="الكل">All</button>
           <button class="chip" data-filter="chickpeas" data-en="Chickpeas" data-ar="حمص">Chickpeas</button>
@@ -218,62 +178,62 @@ gtag('consent','default',{
         </div>
 
         <div class="product-grid">
-          <article class="product reveal" data-cat="other">
+          <article id="basmati-rice" class="product reveal" data-cat="other">
             <div class="product__media-wrap"><span class="product__tag" data-en="Rice" data-ar="أرز">Rice</span><img class="product__media" src="images/products2/01-basmati-rice.jpeg" alt="Basmati Rice" loading="lazy" width="400" height="400" data-fallback data-label="Basmati Rice"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">أرز بسمتي</span><span class="product__en" data-en="Basmati Rice" data-ar="أرز بسمتي">Basmati Rice</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Basmati%20Rice" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="other">
+          <article id="lupine" class="product reveal" data-cat="other">
             <div class="product__media-wrap"><span class="product__tag" data-en="Lupine" data-ar="ترمس">Lupine</span><img class="product__media" src="images/products2/02-lupine-tirmis.jpeg" alt="Lupine" loading="lazy" width="400" height="400" data-fallback data-label="Lupine"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">ترمس</span><span class="product__en" data-en="Lupine" data-ar="ترمس">Lupine</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Lupine" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="chickpeas">
+          <article id="chickpeas-10mm" class="product reveal" data-cat="chickpeas">
             <div class="product__media-wrap"><span class="product__tag" data-en="Chickpeas" data-ar="حمص">Chickpeas</span><img class="product__media" src="images/products2/03-chickpeas-10mm.jpeg" alt="Chickpeas 10 mm" loading="lazy" width="400" height="400" data-fallback data-label="Chickpeas 10 mm"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">حمص 10 ملم</span><span class="product__en" data-en="Chickpeas 10 mm" data-ar="حمص 10 ملم">Chickpeas 10 mm</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Chickpeas%2010%20mm" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="chickpeas">
+          <article id="chickpeas-14mm" class="product reveal" data-cat="chickpeas">
             <div class="product__media-wrap"><span class="product__tag" data-en="Chickpeas" data-ar="حمص">Chickpeas</span><img class="product__media" src="images/products2/04-chickpeas-14mm.jpeg" alt="Chickpeas 14 mm" loading="lazy" width="400" height="400" data-fallback data-label="Chickpeas 14 mm"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">حمص 14 ملم</span><span class="product__en" data-en="Chickpeas 14 mm" data-ar="حمص 14 ملم">Chickpeas 14 mm</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Chickpeas%2014%20mm" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="chickpeas">
+          <article id="chickpeas" class="product reveal" data-cat="chickpeas">
             <div class="product__media-wrap"><span class="product__tag" data-en="Chickpeas" data-ar="حمص">Chickpeas</span><img class="product__media" src="images/products2/05-chickpeas.jpeg" alt="Chickpeas" loading="lazy" width="400" height="400" data-fallback data-label="Chickpeas"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">حمص</span><span class="product__en" data-en="Chickpeas" data-ar="حمص">Chickpeas</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Chickpeas" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="lentils">
+          <article id="yellow-split-lentils" class="product reveal" data-cat="lentils">
             <div class="product__media-wrap"><span class="product__tag" data-en="Lentils" data-ar="عدس">Lentils</span><img class="product__media" src="images/products2/06-yellow-split-lentils.jpeg" alt="Yellow Split Lentils" loading="lazy" width="400" height="400" data-fallback data-label="Yellow Split Lentils"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">عدس أصفر مجروش</span><span class="product__en" data-en="Yellow Split Lentils" data-ar="عدس أصفر مجروش">Yellow Split Lentils</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Yellow%20Split%20Lentils" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="lentils">
+          <article id="whole-lentils" class="product reveal" data-cat="lentils">
             <div class="product__media-wrap"><span class="product__tag" data-en="Lentils" data-ar="عدس">Lentils</span><img class="product__media" src="images/products2/07-whole-lentils.jpeg" alt="Whole Lentils" loading="lazy" width="400" height="400" data-fallback data-label="Whole Lentils"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">عدس بجبة</span><span class="product__en" data-en="Whole Lentils" data-ar="عدس بجبة">Whole Lentils</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Whole%20Lentils" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="faba">
+          <article id="australian-faba-bean-wide" class="product reveal" data-cat="faba">
             <div class="product__media-wrap"><span class="product__tag" data-en="Faba" data-ar="فول">Faba</span><img class="product__media" src="images/products2/08-australian-faba-wide.jpeg" alt="Australian Faba Bean (Wide)" loading="lazy" width="400" height="400" data-fallback data-label="Australian Faba Bean (Wide)"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">فول أسترالي عريض</span><span class="product__en" data-en="Australian Faba Bean (Wide)" data-ar="فول أسترالي عريض">Australian Faba Bean (Wide)</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Australian%20Faba%20Bean%20Wide" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="faba">
+          <article id="australian-faba-bean" class="product reveal" data-cat="faba">
             <div class="product__media-wrap"><span class="product__tag" data-en="Faba" data-ar="فول">Faba</span><img class="product__media" src="images/products2/09-australian-faba.jpeg" alt="Australian Faba Bean" loading="lazy" width="400" height="400" data-fallback data-label="Australian Faba Bean"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">فول أسترالي</span><span class="product__en" data-en="Australian Faba Bean" data-ar="فول أسترالي">Australian Faba Bean</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Australian%20Faba%20Bean" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="faba">
+          <article id="english-faba-bean" class="product reveal" data-cat="faba">
             <div class="product__media-wrap"><span class="product__tag" data-en="Faba" data-ar="فول">Faba</span><img class="product__media" src="images/products2/10-english-faba.jpeg" alt="English Faba Bean" loading="lazy" width="400" height="400" data-fallback data-label="English Faba Bean"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">فول إنجليزي</span><span class="product__en" data-en="English Faba Bean" data-ar="فول إنجليزي">English Faba Bean</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20English%20Faba%20Bean" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="faba">
+          <article id="lithuanian-faba-bean" class="product reveal" data-cat="faba">
             <div class="product__media-wrap"><span class="product__tag" data-en="Faba" data-ar="فول">Faba</span><img class="product__media" src="images/products2/11-lithuanian-faba.jpeg" alt="Lithuanian Faba Bean" loading="lazy" width="400" height="400" data-fallback data-label="Lithuanian Faba Bean"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">فول ليتواني</span><span class="product__en" data-en="Lithuanian Faba Bean" data-ar="فول ليتواني">Lithuanian Faba Bean</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Lithuanian%20Faba%20Bean" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
 
-          <article class="product reveal" data-cat="faba">
+          <article id="split-faba-bean" class="product reveal" data-cat="faba">
             <div class="product__media-wrap"><span class="product__tag" data-en="Faba" data-ar="فول">Faba</span><img class="product__media" src="images/products2/12-split-faba.jpeg" alt="Split Faba Bean" loading="lazy" width="400" height="400" data-fallback data-label="Split Faba Bean"></div>
             <div class="product__body"><span class="product__ar" lang="ar" dir="rtl">فول مجروش</span><span class="product__en" data-en="Split Faba Bean" data-ar="فول مجروش">Split Faba Bean</span><a class="btn btn--wa btn--sm btn--block" href="https://api.whatsapp.com/send?phone=201061130918&amp;text=I'm%20interested%20in%20Split%20Faba%20Bean" target="_blank" rel="noopener" data-en="Inquire" data-ar="استفسر">Inquire</a></div>
           </article>
@@ -339,11 +299,11 @@ gtag('consent','default',{
         <div class="footer-col">
           <h4 data-en="Products" data-ar="المنتجات">Products</h4>
           <ul>
-            <li><a href="products.html" data-en="Red lentils" data-ar="عدس أحمر">Red lentils</a></li>
-            <li><a href="products.html" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
-            <li><a href="products.html" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
-            <li><a href="products.html" data-en="Popcorn" data-ar="فشار">Popcorn</a></li>
-            <li><a href="products.html" data-en="Black-eyed beans" data-ar="لوبيا">Black-eyed beans</a></li>
+            <li><a href="products.html#yellow-split-lentils" data-en="Lentils" data-ar="عدس">Lentils</a></li>
+            <li><a href="products.html#lupine" data-en="Lupine" data-ar="ترمس">Lupine</a></li>
+            <li><a href="products.html#australian-faba-bean" data-en="Faba bean" data-ar="فول">Faba bean</a></li>
+            <li><a href="products.html#chickpeas" data-en="Chickpeas" data-ar="حمص">Chickpeas</a></li>
+            <li><a href="products.html#basmati-rice" data-en="Basmati rice" data-ar="أرز بسمتي">Basmati rice</a></li>
           </ul>
         </div>
         <div class="footer-col">

@@ -9,8 +9,8 @@
   /* ----------------------------------------------------------------
      LANGUAGE (EN / AR with RTL)
   ---------------------------------------------------------------- */
-  var STORE_KEY = "ec-lang";
   var html = document.documentElement;
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function applyLang(lang) {
     var ar = lang === "ar";
@@ -39,16 +39,10 @@
     document.querySelectorAll(".lang-switch button").forEach(function (b) {
       b.classList.toggle("is-active", b.getAttribute("data-lang") === lang);
     });
-    try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
   }
 
-  var saved = "en";
-  try { saved = localStorage.getItem(STORE_KEY) || "en"; } catch (e) {}
-  applyLang(saved);
-
-  document.querySelectorAll(".lang-switch button").forEach(function (b) {
-    b.addEventListener("click", function () { applyLang(b.getAttribute("data-lang")); });
-  });
+  // The URL selects the language. Both versions contain readable static HTML.
+  applyLang(html.lang === "ar" ? "ar" : "en");
 
   /* ----------------------------------------------------------------
      MOBILE NAV
@@ -56,26 +50,49 @@
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("primary-nav");
   var backdrop = document.querySelector(".nav-backdrop");
+  var mobileNav = window.matchMedia("(max-width: 900px)");
+  function syncNav() {
+    if (nav) nav.inert = mobileNav.matches && !nav.classList.contains("is-open");
+  }
   function closeNav() {
     if (!nav) return;
     nav.classList.remove("is-open");
     if (backdrop) backdrop.classList.remove("is-open");
     if (toggle) toggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
+    syncNav();
   }
   function openNav() {
     nav.classList.add("is-open");
     if (backdrop) backdrop.classList.add("is-open");
     toggle.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
+    syncNav();
+    var firstLink = nav.querySelector("a");
+    if (firstLink) firstLink.focus();
   }
   if (toggle && nav) {
+    document.documentElement.classList.add("nav-ready");
+    syncNav();
+    mobileNav.addEventListener("change", closeNav);
     toggle.addEventListener("click", function () {
       nav.classList.contains("is-open") ? closeNav() : openNav();
     });
     if (backdrop) backdrop.addEventListener("click", closeNav);
     nav.addEventListener("click", function (e) { if (e.target.tagName === "A") closeNav(); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeNav(); });
+    document.addEventListener("keydown", function (e) {
+      if (!nav.classList.contains("is-open")) return;
+      if (e.key === "Escape") { closeNav(); toggle.focus(); }
+      if (e.key === "Tab" && mobileNav.matches) {
+        var links = Array.from(nav.querySelectorAll("a[href]"));
+        var first = links[0], last = links[links.length - 1];
+        if (e.shiftKey && (document.activeElement === first || document.activeElement === toggle)) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); toggle.focus();
+        }
+      }
+    });
   }
 
   /* ----------------------------------------------------------------
@@ -109,11 +126,11 @@
      SCROLL REVEAL
   ---------------------------------------------------------------- */
   var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && revealEls.length) {
+  if (!reducedMotion && "IntersectionObserver" in window && revealEls.length) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
-    revealEls.forEach(function (el) { io.observe(el); });
+    revealEls.forEach(function (el) { el.classList.add("reveal-ready"); io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
@@ -134,7 +151,7 @@
     requestAnimationFrame(step);
   }
   var counters = document.querySelectorAll("[data-count]");
-  if ("IntersectionObserver" in window && counters.length) {
+  if (!reducedMotion && "IntersectionObserver" in window && counters.length) {
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { animateCounter(e.target); cio.unobserve(e.target); } });
     }, { threshold: 0.5 });
@@ -157,23 +174,21 @@
       var b = document.createElement("button");
       b.className = "testi__dot"; b.type = "button";
       b.setAttribute("aria-label", "Show testimonial " + (i + 1));
-      b.addEventListener("click", function () { go(i); restart(); });
+      b.addEventListener("click", function () { go(i); });
       if (dotsWrap) dotsWrap.appendChild(b);
       return b;
     });
     function go(i) {
       index = (i + slides.length) % slides.length;
       slides.forEach(function (s, n) { s.classList.toggle("is-active", n === index); s.setAttribute("aria-hidden", n === index ? "false" : "true"); });
-      dots.forEach(function (d, n) { d.classList.toggle("is-active", n === index); });
+      dots.forEach(function (d, n) { d.classList.toggle("is-active", n === index); d.setAttribute("aria-pressed", n === index ? "true" : "false"); });
     }
     function next() { go(index + 1); }
     function prev() { go(index - 1); }
-    function restart() { if (timer) clearInterval(timer); timer = setInterval(next, INTERVAL); }
-    if (nextBtn) nextBtn.addEventListener("click", function () { next(); restart(); });
-    if (prevBtn) prevBtn.addEventListener("click", function () { prev(); restart(); });
-    slider.addEventListener("mouseenter", function () { if (timer) clearInterval(timer); });
-    slider.addEventListener("mouseleave", restart);
-    go(0); restart();
+    // Manual navigation avoids moving content while a visitor is reading.
+    if (nextBtn) nextBtn.addEventListener("click", next);
+    if (prevBtn) prevBtn.addEventListener("click", prev);
+    go(0);
   }
 
   /* ----------------------------------------------------------------
@@ -183,9 +198,11 @@
   if (chips.length) {
     var products = document.querySelectorAll(".product[data-cat]");
     chips.forEach(function (chip) {
+      chip.setAttribute("aria-pressed", chip.classList.contains("is-active") ? "true" : "false");
       chip.addEventListener("click", function () {
-        chips.forEach(function (c) { c.classList.remove("is-active"); });
+        chips.forEach(function (c) { c.classList.remove("is-active"); c.setAttribute("aria-pressed", "false"); });
         chip.classList.add("is-active");
+        chip.setAttribute("aria-pressed", "true");
         var f = chip.getAttribute("data-filter");
         products.forEach(function (p) {
           var show = f === "all" || p.getAttribute("data-cat") === f;
@@ -201,7 +218,7 @@
   var toTop = document.querySelector(".to-top");
   if (toTop) {
     window.addEventListener("scroll", function () { toTop.classList.toggle("show", window.scrollY > 600); }, { passive: true });
-    toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reducedMotion ? "instant" : "smooth" }); });
   }
 
   /* ----------------------------------------------------------------
@@ -222,23 +239,30 @@
       "Name: " + encodeURIComponent(get("first_name") + " " + get("last_name")) + "%0A" +
       "Email: " + encodeURIComponent(get("email")) + "%0A" +
       "Tel: " + encodeURIComponent(get("tel")) + "%0A" +
+      "Product: " + encodeURIComponent(get("product")) + "%0A" +
+      "Quantity: " + encodeURIComponent(get("quantity")) + "%0A" +
+      "Destination: " + encodeURIComponent(get("destination")) + "%0A" +
       "Message: " + encodeURIComponent(get("message"));
     return "https://api.whatsapp.com/send?phone=" + WA_PHONE + "&text=" + msg;
   }
 
   var waFallback = document.getElementById("wa-fallback");
   if (waFallback && contactForm) {
-    waFallback.addEventListener("click", function () {
+    waFallback.addEventListener("click", function (e) {
+      if (!contactForm.reportValidity()) { e.preventDefault(); return; }
       waFallback.href = buildWaLink(contactForm);
     });
   }
 
-  // No real form backend wired yet → make "Send Message" reach us via WhatsApp
-  if (contactForm && /YOUR_FORM_ID/.test(contactForm.getAttribute("action") || "")) {
+  // A handoff opens WhatsApp; only the visitor can send the message there.
+  if (contactForm && contactForm.getAttribute("data-delivery") === "whatsapp") {
+    var submitButton = contactForm.querySelector('button[type="submit"]');
+    if (submitButton) submitButton.disabled = false;
     contactForm.addEventListener("submit", function (e) {
-      if (typeof contactForm.checkValidity === "function" && !contactForm.checkValidity()) return;
       e.preventDefault();
-      window.open(buildWaLink(contactForm), "_blank", "noopener");
+      if (!contactForm.reportValidity()) return;
+      if (window.ecTrack) window.ecTrack("rfq_whatsapp_handoff", "contact_form");
+      window.location.assign(buildWaLink(contactForm));
     });
   }
 
