@@ -233,6 +233,15 @@
   var WA_PHONE = "201061130918";
   var contactForm = document.getElementById("contact-form");
 
+  // Keep the selected catalogue product when preparing a quote; preserve visitor edits.
+  if (contactForm) {
+    var productField = contactForm.elements["product"];
+    var selectedProduct = new URLSearchParams(window.location.search).get("product");
+    if (productField && !productField.value && selectedProduct) {
+      productField.value = selectedProduct.trim().slice(0, productField.maxLength > 0 ? productField.maxLength : 160);
+    }
+  }
+
   function buildWaLink(form) {
     var get = function (n) { var f = form.elements[n]; return f ? f.value.trim() : ""; };
     var msg = "Hello Egyptian Canadian Company,%0A" +
