@@ -2,6 +2,10 @@
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # Resolve legacy paths directly to their canonical destinations on any host.
+  RewriteRule ^contact/?$ https://ec-egypt.com/contact.html [R=301,L,NC]
+  RewriteRule ^index\.html$ https://ec-egypt.com/ [R=301,L,NC]
+  RewriteRule ^ar/index\.html$ https://ec-egypt.com/ar/ [R=301,L,NC]
   # Keep every public URL on the HTTPS host used by canonical links and sitemap.
   RewriteCond %{HTTP_HOST} ^www\.ec-egypt\.com$ [NC,OR]
   RewriteCond %{HTTPS} off
