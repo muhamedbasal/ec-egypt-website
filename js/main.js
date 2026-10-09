@@ -210,6 +210,29 @@
         });
       });
     });
+
+    // Product links must also work when a category filter hides their target.
+    function revealLinkedProduct(hash) {
+      var id;
+      try { id = decodeURIComponent(hash.slice(1)); } catch (e) { return; }
+      var target = document.getElementById(id);
+      var allChip = document.querySelector('.chip[data-filter="all"]');
+      if (!target || !Array.from(products).includes(target) || target.style.display !== "none" || !allChip) return;
+      allChip.click();
+      target.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+    window.addEventListener("hashchange", function () {
+      revealLinkedProduct(window.location.hash);
+    });
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest("a[href]");
+      if (!link || e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      var url = new URL(link.href, window.location.href);
+      if (url.origin === window.location.origin && url.pathname === window.location.pathname &&
+          url.search === window.location.search && url.hash === window.location.hash) {
+        revealLinkedProduct(url.hash);
+      }
+    });
   }
 
   /* ----------------------------------------------------------------
