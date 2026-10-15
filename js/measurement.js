@@ -17,6 +17,10 @@
   tag.async = true;
   tag.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(measurementId);
   document.head.appendChild(tag);
+  var savedConsent = getConsent();
+  if (savedConsent === "granted" || savedConsent === "denied") {
+    window.gtag("consent", "update", { analytics_storage: savedConsent });
+  }
   window.gtag("js", new Date());
   window.gtag("config", measurementId);
 
@@ -26,6 +30,13 @@
   function setConsent(choice) {
     try { window.localStorage.setItem(consentKey, choice); } catch (_) {}
     window.gtag("consent", "update", { analytics_storage: choice });
+    if (choice === "granted") {
+      window.gtag("event", "page_view", {
+        page_path: window.location.pathname,
+        page_title: document.title,
+        page_location: window.location.href
+      });
+    }
   }
   function showConsentBanner() {
     if (getConsent()) return;
@@ -41,10 +52,10 @@
       banner.remove();
     });
   }
-  if (getConsent() === "granted") window.gtag("consent", "update", { analytics_storage: "granted" });
-  else if (getConsent() === "denied") window.gtag("consent", "update", { analytics_storage: "denied" });
-  else if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showConsentBanner);
-  else showConsentBanner();
+  if (!savedConsent) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showConsentBanner);
+    else showConsentBanner();
+  }
 
   var allowed = ["contact_whatsapp_click", "contact_phone_click", "contact_email_click", "rfq_form_start", "rfq_whatsapp_handoff"];
   window.ecTrack = function (event, location) {
