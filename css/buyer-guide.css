@@ -1,0 +1,27 @@
+/* Scoped to the bilingual lentil buying guide. */
+.guide-hero { background:var(--green); }
+.buyer-guide { max-width:1000px; }
+.buyer-guide h2 { margin-block:2.25rem 1rem; font-size:clamp(1.5rem,3vw,2rem); }
+.buyer-guide p { margin-block:1rem; }
+.buyer-guide a:not(.btn) { text-decoration:underline; text-underline-offset:.2em; }
+.guide-answer { padding:1.5rem; border-inline-start:4px solid var(--gold); background:var(--cream); border-radius:var(--radius); }
+.guide-answer h2 { margin-block-start:0; }
+.guide-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem; }
+.guide-options article { padding:1.5rem; border:1px solid var(--line); border-radius:var(--radius); }
+.guide-options h3 { font-size:1.4rem; }
+.guide-options ul,.guide-steps { padding-inline-start:1.5rem; }
+.guide-options li,.guide-steps li { margin-block:.75rem; }
+.guide-table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); }
+.guide-table-wrap:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+.guide-table-wrap table { width:100%; border-collapse:collapse; text-align:start; font-size:.95rem; }
+.guide-table-wrap caption { text-align:start; padding:1rem; font-weight:700; background:var(--cream); }
+.guide-table-wrap th,.guide-table-wrap td { padding:1rem; border-block-start:1px solid var(--line); vertical-align:top; text-align:start; }
+.guide-table-wrap th[scope="row"] { width:28%; }
+.guide-quote { margin-block-start:2.5rem; padding:1.5rem; background:var(--cream); border-radius:var(--radius); }
+.guide-quote h2 { margin-block-start:0; }
+.guide-actions { display:flex; flex-wrap:wrap; gap:1rem; }
+@media(max-width:640px) { .guide-options { grid-template-columns:1fr; } .guide-table-wrap th,.guide-table-wrap td { padding:.75rem; } .guide-actions .btn { width:100%; white-space:normal; text-align:center; } }
+
+@media(max-width:900px) { html.nav-ready .main-nav:not(.is-open) { display:none; } }
+
+.main-nav .dropdown { flex-direction:column; align-items:stretch; }
