@@ -263,6 +263,20 @@
     if (productField && !productField.value && selectedProduct) {
       productField.value = selectedProduct.trim().slice(0, productField.maxLength > 0 ? productField.maxLength : 160);
     }
+    if (productField) {
+      // Carry only the current product into the other static language page.
+      function syncProductLanguageLinks() {
+        document.querySelectorAll(".lang-switch a[hreflang]").forEach(function (link) {
+          var target = new URL(link.getAttribute("href"), window.location.href);
+          var product = productField.value.trim().slice(0, productField.maxLength > 0 ? productField.maxLength : 160);
+          if (product) target.searchParams.set("product", product);
+          else target.searchParams.delete("product");
+          link.href = target.href;
+        });
+      }
+      syncProductLanguageLinks();
+      productField.addEventListener("input", syncProductLanguageLinks);
+    }
   }
 
   function buildWaLink(form) {
